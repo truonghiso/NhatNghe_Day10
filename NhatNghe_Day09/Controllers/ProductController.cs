@@ -19,7 +19,18 @@ namespace NhatNghe_Day09.Controllers
         public IActionResult Index()
         {
             var dsHH = _productService.GetAll();
+            return View(dsHH);
+        }
+
+        public IActionResult Add() 
+        {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Add(Product sp)
+        {
+            _productService.AddProduct(sp);
+            return RedirectToAction("Index");
         }
     }
 }

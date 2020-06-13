@@ -8,9 +8,19 @@ namespace NhatNghe_Day09.Models.Service.Implements
 {
     public class BasicProductService : IProductsService
     {
+        public static List<Product> products = new List<Product>();
         public void AddProduct(Product product)
         {
-            throw new NotImplementedException();
+            products.Add(product);
+        }
+
+        public void DeleteProduct(int masp)
+        {
+            var product = products.SingleOrDefault(p => p.ProductID == masp);
+                if (product != null)
+                {
+                    products.Remove(product);
+                }
         }
 
         public void DeleteProduct(Product product)
@@ -25,7 +35,7 @@ namespace NhatNghe_Day09.Models.Service.Implements
 
         public IEnumerable<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return products;
         }
 
         public void UpdateProduct(Product product)
