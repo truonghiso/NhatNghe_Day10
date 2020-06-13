@@ -1,14 +1,11 @@
 ﻿
-@model NhatNghe_Day09.Models.Demo1
-
+@model IEnumerable<NhatNghe_Day09.Models.Product>
 <div class="card">
-    <div class="card-header bg-success">
-        @Model.TenDanhMuc
-    </div>
+    
     <div class="card-body">
-        @foreach (var sp in Model.SanPham)
+        @foreach (var sp in Model)
         {
-            <a class="list-group-item">@sp</a>
+            <a class="list-group-item">@sp.ProductName</a>
         }
     </div>
 </div>
