@@ -27,6 +27,10 @@ namespace NhatNghe_Day09
             services.AddControllersWithViews();
             //Khai báo dv để use:
             services.AddTransient<IProductsService, BasicProductService>();
+
+            services.AddTransient<ItransientService, MyService>();
+            services.AddScoped<IScopedService, MyService>();
+            services.AddSingleton<ISingletonService, MyService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
